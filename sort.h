@@ -1,8 +1,5 @@
-#ifndef SORT_H
-#define SORT_H
-
-#include <stddef.h>
-#include <stdio.h>
+#ifndef __SORT__
+#define __SORT__
 #include <stdlib.h>
 
 /**
@@ -14,22 +11,39 @@
  */
 typedef struct listint_s
 {
-    const int n;
-    struct listint_s *prev;
-    struct listint_s *next;
+	const int n;
+	struct listint_s *prev;
+	struct listint_s *next;
 } listint_t;
+
+/*======================================================================*/
+/*=================         Printing Algoritms        ==================*/
+/*======================================================================*/
 
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
+
+
+/*======================================================================*/
+/*=================          sorting Algoritms        ==================*/
+/*======================================================================*/
 
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
-void swap(int *x, int *y);
-void quicksort_recursion(int *array, size_t size, int low, int high);
-int partition(int *array, int low, int high);
+void shell_sort(int *array, size_t size);
+void cocktail_sort_list(listint_t **list);
+void counting_sort(int *array, size_t size);
+void merge_sort(int *array, size_t size);
+void heap_sort(int *array, size_t size);
+void radix_sort(int *array, size_t size);
+void bitonic_sort(int *array, size_t size);
+void quick_sort_hoare(int *array, size_t size);
+int partition(int *array, int lo, int hi, size_t size);
+void quick_s(int *array, int lo, int hi, size_t size);
+void merge(size_t lo, size_t mi, size_t hi, int *dest, int *src);
+void merge_partition(size_t lo, size_t hi, int *array, int *base);
+void swap_root(int *array, size_t root, size_t hi, size_t size);
 
-
-
-#endif
+#endif /* __SORT__ */
